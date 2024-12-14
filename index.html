@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .poster {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        /* Memperbesar dan memperjelas ikon medis di header */
+        .header::before {
+            content: "⚕";
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.2;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffffff;
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #ecf0f1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .module {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Memperbesar dan memperjelas ikon modul */
+        .module::after {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 40px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .module.patient::after {
+            content: "👨‍⚕️";
+        }
+
+        .module.admin::after {
+            content: "💻";
+        }
+
+        .module.medical::after {
+            content: "🏥";
+        }
+
+        .module.security::after {
+            content: "🔒";
+        }
+
+        .module h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 1.4em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .module ul {
+            list-style-type: none;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .module li {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1em;
+        }
+
+        /* Memperbesar dan memperjelas bullet points */
+        .module li:before {
+            content: "▹";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #2c3e50;
+            font-size: 1em;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Memperbesar dan memperjelas ikon footer */
+        .footer::before {
+            content: "💙";
+            display: block;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        /* Menambahkan highlight effect saat hover */
+        .module:hover::after {
+            opacity: 0.25;
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Background pattern yang lebih kontras */
+        .module {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 1.8em;
+            }
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .module::after {
+                font-size: 30px;
+            }
+            .header::before {
+                font-size: 80px;
+            }
+        }
+
+        /* Animasi untuk ikon */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .module::after {
+            animation: float 3s ease-in-out infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <div class="title">SISTEM INFORMASI RUMAH SAKIT</div>
+            <div class="subtitle">Solusi Terintegrasi untuk Pelayanan Kesehatan Modern</div>
+        </div>
+
+        <div class="content">
+            <div class="module patient">
+                <h3>Manajemen Pasien</h3>
+                <ul>
+                    <li>Pendaftaran Online</li>
+                    <li>Rekam Medis Digital</li>
+                    <li>Riwayat Perawatan</li>
+                    <li>Appointment System</li>
+                </ul>
+            </div>
+
+            <div class="module admin">
+                <h3>Administrasi</h3>
+                <ul>
+                    <li>Pengelolaan Billing</li>
+                    <li>Manajemen Inventori</li>
+                    <li>Sistem Keuangan</li>
+                    <li>Laporan Analytics</li>
+                </ul>
+            </div>
+
+            <div class="module medical">
+                <h3>Layanan Medis</h3>
+                <ul>
+                    <li>Sistem Laboratorium</li>
+                    <li>Farmasi Digital</li>
+                    <li>Radiologi Terintegrasi</li>
+                    <li>Manajemen Kamar</li>
+                </ul>
+            </div>
+
+            <div class="module security">
+                <h3>Keamanan & Integrasi</h3>
+                <ul>
+                    <li>Enkripsi Data</li>
+                    <li>Backup Otomatis</li>
+                    <li>Integrasi API</li>
+                    <li>Monitoring Real-time</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2024 Sistem Informasi Rumah Sakit | Mengoptimalkan Pelayanan Kesehatan Melalui Teknologi
+        </div>
+    </div>
+</body>
+</html>
